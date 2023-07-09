@@ -11,6 +11,7 @@ class USkeletalMeshComponent;
 class USpringArmComponent;
 class UCameraComponent;
 class UParticleSystemComponent;
+class UFloatingPawnMovement;
 
 UCLASS()
 class MYPROJECT_API ABird : public APawn
@@ -56,6 +57,9 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* ViewCamera;
+
+	UPROPERTY(VisibleAnywhere)
+	UFloatingPawnMovement* Movement;
 
 	UPROPERTY(EditAnywhere)
 	UParticleSystemComponent* DeathFVX;

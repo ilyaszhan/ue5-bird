@@ -8,6 +8,7 @@
 #include "Particles/ParticleSystemComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameFramework/FloatingPawnMovement.h"
 
 // Sets default values
 ABird::ABird()
@@ -24,6 +25,8 @@ ABird::ABird()
 	Capsule->SetCollisionProfileName(TEXT("BlockAll"));
 	Capsule->OnComponentHit.AddDynamic(this, &ABird::HandleComponentHit);
 	SetRootComponent(Capsule);
+
+	Movement = CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("Movement"));
 
 	BirdMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BirdMesh"));
 	BirdMesh->SetupAttachment(RootComponent);
